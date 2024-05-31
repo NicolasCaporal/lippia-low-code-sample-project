@@ -7,7 +7,7 @@ Feature: Project
     @AddNewProject @Exitoso
     Scenario: Add New Project
       * define random projectName = ProjectLippiaLowCode
-      Given header x-api-key = Y2U5NzYwZTMtNDdjMy00ZDgyLThmNmYtMTc0YmViYWJjNjg5
+      Given header x-api-key = YTUxYmQ4ZWEtODk3Mi00YWI2LTk3MDktM2M1ODRiYWI3NWRl
       And call Workspace.feature@GetWorkspaceId
       And endpoint /workspaces/{{workspaceId}}/projects
       And header Content-Type = application/json
@@ -18,7 +18,7 @@ Feature: Project
 
   @GetProjectId @Exitoso # Duda: ¿Está bien el nombre? En realidad es un GET All Projects on Workspace, pero yo lo uso para agarrar el ID del primero
   Scenario: Get project Id
-    Given header x-api-key = Y2U5NzYwZTMtNDdjMy00ZDgyLThmNmYtMTc0YmViYWJjNjg5
+    Given header x-api-key = YTUxYmQ4ZWEtODk3Mi00YWI2LTk3MDktM2M1ODRiYWI3NWRl
     And call Workspace.feature@GetWorkspaceId
     And endpoint /workspaces/{{workspaceId}}/projects
     When execute method GET
@@ -28,7 +28,7 @@ Feature: Project
 
   @GetProjectInfoById @Exitoso
   Scenario: Get project info by ID
-    Given header x-api-key = Y2U5NzYwZTMtNDdjMy00ZDgyLThmNmYtMTc0YmViYWJjNjg5
+    Given header x-api-key = YTUxYmQ4ZWEtODk3Mi00YWI2LTk3MDktM2M1ODRiYWI3NWRl
     And call Project.feature@GetProjectId
     And endpoint /workspaces/{{workspaceId}}/projects/{{projectId}}
     When execute method GET
@@ -38,7 +38,7 @@ Feature: Project
   @UpdateProjectOnWorkspace @Exitoso
   Scenario: Update project
     * define color = "#0000FF"
-    Given header x-api-key = Y2U5NzYwZTMtNDdjMy00ZDgyLThmNmYtMTc0YmViYWJjNjg5
+    Given header x-api-key = YTUxYmQ4ZWEtODk3Mi00YWI2LTk3MDktM2M1ODRiYWI3NWRl
     And call Project.feature@GetProjectId
     And endpoint /workspaces/{{workspaceId}}/projects/{{projectId}}
     And header Content-Type = application/json
@@ -61,8 +61,8 @@ Feature: Project
     Examples:
     | motivo                    | statusCode | apyKeyValue                                      | isPublic | endpoint |
     | No autorizado             | 401        | AAU5NzYwZTMtNDdjMy00ZDgyLThmNmYtMTc0YmViYWJjNjZZ | true     | /workspaces/{{workspaceId}}/projects |
-    | Proyecto no encontrado    | 404        | Y2U5NzYwZTMtNDdjMy00ZDgyLThmNmYtMTc0YmViYWJjNjg5 | true     | /workspaces/{{workspaceId}}/project  |
-    | Bad Request               | 400        | Y2U5NzYwZTMtNDdjMy00ZDgyLThmNmYtMTc0YmViYWJjNjg5 | Crowdar  | /workspaces/{{workspaceId}}/projects |
+    | Proyecto no encontrado    | 404        | YTUxYmQ4ZWEtODk3Mi00YWI2LTk3MDktM2M1ODRiYWI3NWRl | true     | /workspaces/{{workspaceId}}/project  |
+    | Bad Request               | 400        | YTUxYmQ4ZWEtODk3Mi00YWI2LTk3MDktM2M1ODRiYWI3NWRl | Crowdar  | /workspaces/{{workspaceId}}/projects |
 
 
   @GetProjectIdFallido @Fallido
@@ -76,8 +76,8 @@ Feature: Project
     Examples:
       | motivo                    | statusCode | apyKeyValue                                      | endpoint                                |
       | No autorizado             | 401        | AAU5NzYwZTMtNDdjMy00ZDgyLThmNmYtMTc0YmViYWJjNjZZ | /workspaces/{{workspaceId}}/projects    |
-      | Proyecto no encontrado    | 404        | Y2U5NzYwZTMtNDdjMy00ZDgyLThmNmYtMTc0YmViYWJjNjg5 | /workspaces/{{workspaceId}}/project     |
-      | Bad Request               | 400        | Y2U5NzYwZTMtNDdjMy00ZDgyLThmNmYtMTc0YmViYWJjNjg5 | /workspaces/{{workspaceId}}/projects/;  |
+      | Proyecto no encontrado    | 404        | YTUxYmQ4ZWEtODk3Mi00YWI2LTk3MDktM2M1ODRiYWI3NWRl | /workspaces/{{workspaceId}}/project     |
+      | Bad Request               | 400        | YTUxYmQ4ZWEtODk3Mi00YWI2LTk3MDktM2M1ODRiYWI3NWRl | /workspaces/{{workspaceId}}/projects/;  |
 
 
   @GetProjectInfoByIdFallido @Fallido
@@ -91,8 +91,8 @@ Feature: Project
     Examples:
       | motivo                    | statusCode | apyKeyValue                                      | endpoint                                              |
       | No autorizado             | 401        | AAU5NzYwZTMtNDdjMy00ZDgyLThmNmYtMTc0YmViYWJjNjZZ | /workspaces/{{workspaceId}}/projects/{{projectId}}    |
-      | Proyecto no encontrado    | 404        | Y2U5NzYwZTMtNDdjMy00ZDgyLThmNmYtMTc0YmViYWJjNjg5 | /workspaces/{{workspaceId}}/project/{{projectId}}     |
-      | Bad Request               | 400        | Y2U5NzYwZTMtNDdjMy00ZDgyLThmNmYtMTc0YmViYWJjNjg5 | /workspaces/{{workspaceId}}/projects/;                |
+      | Proyecto no encontrado    | 404        | YTUxYmQ4ZWEtODk3Mi00YWI2LTk3MDktM2M1ODRiYWI3NWRl | /workspaces/{{workspaceId}}/project/{{projectId}}     |
+      | Bad Request               | 400        | YTUxYmQ4ZWEtODk3Mi00YWI2LTk3MDktM2M1ODRiYWI3NWRl | /workspaces/{{workspaceId}}/projects/;                |
 
 
   @UpdateProjectOnWorkspace @Fallido
@@ -107,5 +107,5 @@ Feature: Project
     Examples:
       | motivo                    | statusCode | apyKeyValue                                      | endpoint                                              |
       | No autorizado             | 401        | AAU5NzYwZTMtNDdjMy00ZDgyLThmNmYtMTc0YmViYWJjNjZZ | /workspaces/{{workspaceId}}/projects/{{projectId}}    |
-      | Proyecto no encontrado    | 404        | Y2U5NzYwZTMtNDdjMy00ZDgyLThmNmYtMTc0YmViYWJjNjg5 | /workspaces/{{workspaceId}}/project/{{projectId}}     |
-      | Bad Request               | 400        | Y2U5NzYwZTMtNDdjMy00ZDgyLThmNmYtMTc0YmViYWJjNjg5 | /workspaces/{{workspaceId}}/projects/;                |
+      | Proyecto no encontrado    | 404        | YTUxYmQ4ZWEtODk3Mi00YWI2LTk3MDktM2M1ODRiYWI3NWRl | /workspaces/{{workspaceId}}/project/{{projectId}}     |
+      | Bad Request               | 400        | YTUxYmQ4ZWEtODk3Mi00YWI2LTk3MDktM2M1ODRiYWI3NWRl | /workspaces/{{workspaceId}}/projects/;                |

@@ -6,7 +6,7 @@ Feature: Project
 
   @GetWorkspaceId
   Scenario: Get Workspace
-    Given header x-api-key = Y2U5NzYwZTMtNDdjMy00ZDgyLThmNmYtMTc0YmViYWJjNjg5
+    Given header x-api-key = YTUxYmQ4ZWEtODk3Mi00YWI2LTk3MDktM2M1ODRiYWI3NWRl
     And endpoint /workspaces
     When execute method GET
     Then the status code should be 200
