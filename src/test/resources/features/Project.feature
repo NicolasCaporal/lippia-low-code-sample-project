@@ -16,8 +16,8 @@ Feature: Project
       Then the status code should be 201
 
 
-  @GetProjectId @Exitoso # Duda: ¿Está bien el nombre? En realidad es un GET All Projects on Workspace, pero yo lo uso para agarrar el ID del primero
-  Scenario: Get project Id
+  @GetProjectId @Exitoso
+  Scenario: Get all projects on Workspace
     Given header x-api-key = $(env.x-api-key)
     And call Workspace.feature@GetWorkspaceId
     And endpoint /workspaces/{{workspaceId}}/projects

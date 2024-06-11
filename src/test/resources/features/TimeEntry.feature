@@ -17,6 +17,7 @@ Feature: TimeEntry
     And response should be [0].timeInterval.duration = PT4H15M
     * define timeEntryId = response[0].id
 
+
   @AddNewTimeEntry
   Scenario: Add a new time entry
     Given call Workspace.feature@GetWorkspaceId
@@ -49,8 +50,3 @@ Feature: TimeEntry
     And endpoint /workspaces/{{workspaceId}}/time-entries/{{timeEntryId}}
     When execute method DELETE
     Then the status code should be 204
-
-
-
-
-
