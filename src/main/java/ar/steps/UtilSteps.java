@@ -5,6 +5,7 @@ import io.cucumber.java.en.*;
 import java.time.Instant;
 
 import java.io.UnsupportedEncodingException;
+import java.time.LocalTime;
 
 public class UtilSteps {
 
@@ -15,5 +16,11 @@ public class UtilSteps {
         long unixTimestamp = Instant.now().getEpochSecond();
         stepsInCommon.setVariable(key, value+unixTimestamp);
     }
+
+   /* @Given("^define time now (.*) (.*) (.*)")
+    public void timeNowDate(String start, String key, String end) throws UnsupportedEncodingException {
+        LocalTime hourNow = LocalTime.now();
+        stepsInCommon.setVariable(key, start+hourNow+end);
+    } */
 
 }
