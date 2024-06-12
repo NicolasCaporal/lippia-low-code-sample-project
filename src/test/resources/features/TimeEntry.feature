@@ -4,13 +4,11 @@ Feature: TimeEntry
   Background:
     Given base url https://api.clockify.me/api/v1
     Given header x-api-key = YTUxYmQ4ZWEtODk3Mi00YWI2LTk3MDktM2M1ODRiYWI3NWRl
-    # Se que es mejor utilizar $(env), pero no logré hacer que me funcione :(
 
   @GetTimeEntry
   Scenario: Get time entry
     Given call Workspace.feature@GetWorkspaceId
     And call User.feature@GetUserId
-    And call TimeEntry.feature@AddNewTimeEntry
     And endpoint /workspaces/{{workspaceId}}/user/{{userId}}/time-entries
     When execute method GET
     Then the status code should be 200
@@ -50,6 +48,7 @@ Feature: TimeEntry
     And endpoint /workspaces/{{workspaceId}}/time-entries/{{timeEntryId}}
     When execute method DELETE
     Then the status code should be 204
+    And call TimeEntry.feature@AddNewTimeEntry
 
 
   @GetTimeEntry @Fallido
